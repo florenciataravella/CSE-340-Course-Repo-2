@@ -1,10 +1,11 @@
 <%-include('partials/header') %>
-    <main>
+    <main class="collection-page organizations-page">
         <h1><%= title %></h1>
         <p>Here are a few of our partner organizations:</p>
 <ul>
     <% organizations.forEach(organization => { %>
-        <li><img src="/images/<%= organization.logo_filename %>" alt="<%= organization.name %> logo"><strong><%= organization.name %></strong>: <%= organization.contact_email %>
+        <li><img src="/images/<%= organization.logo_filename %>" alt="<%= organization.name %> logo">
+            <a class="card-link" href="/organization/<%= organization.organization_id %>"><strong><%= organization.name %></strong>: <%= organization.contact_email %></a>
         </li>
     <% }); %>
 </ul>

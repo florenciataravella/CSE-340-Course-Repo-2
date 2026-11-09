@@ -168,6 +168,132 @@ footer p {
     font-size: 0.9rem;
 }
 
+main.collection-page > ul {
+    gap: 1.25rem;
+}
+
+main.collection-page > ul > li {
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+main.collection-page > ul > li:hover {
+    transform: translateY(-4px);
+}
+
+main.collection-page a {
+    color: inherit;
+}
+
+.collection-page a.card-link {
+    width: 100%;
+    display: block;
+    color: var(--ink);
+    text-decoration: none;
+}
+
+.collection-page a.card-link strong {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 1.2rem;
+}
+
+.collection-page a.card-link::after {
+    content: 'View details →';
+    display: block;
+    margin-top: 0.65rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.collection-page.organizations-page > ul > li {
+    border-left-color: #315c8d;
+}
+
+.collection-page.organizations-page > ul > li:hover {
+    border-color: #315c8d;
+    box-shadow: 0 12px 28px rgba(49, 92, 141, 0.14);
+}
+
+.collection-page.organizations-page a.card-link::after {
+    color: #315c8d;
+}
+
+.collection-page.organizations-page li img {
+    padding: 0.35rem;
+    border: 1px solid #d8e1ec;
+    border-radius: 50%;
+    background: #f4f7fb;
+}
+
+.collection-page.projects-page > ul > li {
+    align-items: flex-start;
+    flex-direction: column;
+    border-left-color: #c78318;
+}
+
+.collection-page.projects-page > ul > li:hover {
+    border-color: #c78318;
+    box-shadow: 0 12px 28px rgba(199, 131, 24, 0.16);
+}
+
+.collection-page.projects-page a.card-link strong::before {
+    content: 'PROJECT';
+    display: inline-block;
+    margin: 0 0.55rem 0.45rem 0;
+    padding: 0.2rem 0.5rem;
+    border-radius: 999px;
+    color: #704b0c;
+    background: #fff0c9;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    vertical-align: middle;
+}
+
+.collection-page.projects-page .organization-link {
+    color: #704b0c;
+    font-weight: 700;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+}
+
+.collection-page.projects-page a.card-link::after {
+    color: #9b6610;
+}
+
+.collection-page.categories-page > ul > li {
+    border-left-color: #24766d;
+    background: linear-gradient(135deg, var(--white) 0%, #f4fbf8 100%);
+}
+
+.collection-page.categories-page > ul > li:hover {
+    border-color: #24766d;
+    box-shadow: 0 12px 28px rgba(36, 118, 109, 0.14);
+}
+
+.collection-page.categories-page a.card-link strong::before {
+    content: '#';
+    margin-right: 0.45rem;
+    color: #24766d;
+    font-family: 'DM Sans', sans-serif;
+}
+
+.collection-page.categories-page a.card-link::after {
+    color: #24766d;
+}
+
+.collection-page a.card-link:focus-visible {
+    outline-offset: 8px;
+    border-radius: 2px;
+}
+
 @media (max-width: 600px) {
     nav ul {
         width: 100%;

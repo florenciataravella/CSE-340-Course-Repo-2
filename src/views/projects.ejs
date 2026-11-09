@@ -1,10 +1,13 @@
 <%-include('partials/header') %>
-    <main>
+    <main class="collection-page projects-page">
         <h1><%= title %></h1>
         <h2>Upcoming Service Projects</h2>
 <ul>
     <% projects.forEach(project => { %>
-        <li><%= project.date %>: <strong><%= project.project_name %></strong> - (<%= project.name %>)</li>
+        <li>
+            <a class="card-link" href="/project/<%= project.project_id %>"><strong><%= project.project_name %></strong></a>
+            <span>Hosted by <a class="organization-link" href="/organization/<%= project.organization_id %>"><%= project.name %></a></span>
+        </li>
     <% }); %>
 </ul>
     </main>
