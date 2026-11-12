@@ -5,9 +5,11 @@
 <ul>
     <% organizations.forEach(organization => { %>
         <li><img src="/images/<%= organization.logo_filename %>" alt="<%= organization.name %> logo">
-            <a class="card-link" href="/organization/<%= organization.organization_id %>"><strong><%= organization.name %></strong>: <%= organization.contact_email %></a>
+            <a class="card-link" href="/organization/<%= organization.organization_id %>"><strong><%= organization.name %></strong> <%= organization.contact_email %></a>
+            <a class="card-link" href="/edit-organization/<%= organization.organization_id %>">Edit</a>
         </li>
     <% }); %>
 </ul>
+<p><a href="/new-organization">Add a new organization</a></p>
     </main>
     <%-include('partials/footer') %>

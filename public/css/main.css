@@ -293,7 +293,33 @@ main.collection-page a {
     outline-offset: 8px;
     border-radius: 2px;
 }
-
+/* Flash message styles */
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+.alert.success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+.alert.error {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+.alert.warning {
+    color: #856404;
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+}
+.alert.info {
+    color: #0c5460;
+    background-color: #d1ecf1;
+    border-color: #bee5eb;
+}
 @media (max-width: 600px) {
     nav ul {
         width: 100%;
@@ -342,4 +368,29 @@ main.collection-page a {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
     }
+}
+.organizations-page > ul > li {
+    display: grid;
+    grid-template-columns: 4.5rem minmax(0, 1fr);
+    grid-template-areas:
+        "logo details"
+        "logo edit";
+    align-items: center;
+    column-gap: 1rem;
+    row-gap: 0.5rem;
+}
+
+.organizations-page > ul > li > img {
+    grid-area: logo;
+}
+
+.organizations-page > ul > li > .card-link {
+    grid-area: details;
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.organizations-page > ul > li > .edit-link {
+    grid-area: edit;
+    justify-self: start;
 }
