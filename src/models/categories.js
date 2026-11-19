@@ -17,7 +17,6 @@ const getCategoryDetails = async (id) => {
         c.category_name,
         c.description,
         pc.project_id,
-        pc.category_id,
         p.project_id,
         p.project_name
     FROM public.categories c
@@ -27,7 +26,6 @@ const getCategoryDetails = async (id) => {
     ON pc.project_id = p.project_id
     WHERE c.category_id = $1;`
 
-;
     const queryParams = [id];
     const result = await db.query(query, queryParams);
     if (result.rows.length === 0) {
