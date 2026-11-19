@@ -3,13 +3,14 @@
         <h1><%= title %></h1>
         <h2><%= organizationDetails.name %></h2>
         <img src="/images/<%= organizationDetails.logo_filename %>" alt="<%= organizationDetails.name %> logo">
+        <div class="detail-actions"><a class="action-link" href="/edit-organization/<%= organizationDetails.organization_id %>">Edit Organization</a></div>
         <p><%= organizationDetails.description %></p>
         <h3> Service Projects:</h3>
         <ul>
             <% projects.forEach(project => { %>
-                <li><a href="/project/<%= project.project_id %>"><%= project.project_name %></a></li>
+                <li><a href="/project/<%= project.project_id %>"><%= project.project_name %></a>
+                </li>
             <% }); %>
         </ul>
     </main>
     <%- include('partials/footer') %>
-    

@@ -320,6 +320,119 @@ main.collection-page a {
     background-color: #d1ecf1;
     border-color: #bee5eb;
 }
+/* Reusable action links and forms */
+.action-link,
+.btn,
+main form button {
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+    margin: 0.35rem 0.35rem 0.35rem 0;
+    padding: 0.65rem 1rem;
+    border: 1px solid var(--leaf);
+    border-radius: 4px;
+    color: var(--white);
+    background: var(--leaf);
+    font: inherit;
+    font-weight: 700;
+    line-height: 1.2;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(18, 59, 53, 0.12);
+    cursor: pointer;
+    transition: background-color 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+.action-link:hover,
+.btn:hover,
+main form button:hover {
+    border-color: var(--forest-deep);
+    background: var(--forest-deep);
+    transform: translateY(-2px);
+}
+
+.action-link.secondary {
+    border-color: #c78318;
+    color: #704b0c;
+    background: #fff0c9;
+}
+
+.action-link.secondary:hover {
+    border-color: #9b6610;
+    color: #704b0c;
+    background: #f9d98c;
+}
+
+.detail-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.25rem;
+    margin: 1.5rem 0;
+}
+
+.create-link {
+    display: block;
+    margin-top: 1.5rem;
+}
+
+main form {
+    max-width: 680px;
+}
+
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.4rem;
+    color: var(--forest-deep);
+    font-weight: 700;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    min-height: 46px;
+    padding: 0.65rem 0.75rem;
+    border: 1px solid #bdcbbf;
+    border-radius: 4px;
+    color: var(--ink);
+    background: var(--white);
+    font: inherit;
+}
+
+.form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: var(--leaf);
+    outline: 3px solid rgba(47, 107, 79, 0.16);
+    outline-offset: 1px;
+}
+
+main form button {
+    margin-top: 0.25rem;
+}
+
+.collection-page > .create-link .btn {
+    border-color: #704b0c;
+    color: #704b0c;
+    background: #f8cf72;
+}
+
+.collection-page > .create-link .btn:hover {
+    border-color: #704b0c;
+    color: #ffffff;
+    background: #704b0c;
+}
+
 @media (max-width: 600px) {
     nav ul {
         width: 100%;

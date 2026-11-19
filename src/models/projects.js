@@ -69,4 +69,35 @@ const getUpcomingProjects = async (number_of_projects) => {
     const result= await db.query(query, queryParams);
     return result.rows;
 };
-export {getAllProjects, getProjectsByOrganizationId, getProjectDetails, getUpcomingProjects};
+const createProject = async (project_name, organization_id, description, location, date) => {
+    const query = `
+      INSERT INTO projects (project_name, organization_id, description, location, date)
+      VALUES ($1, $2, $3, $4, $5)
+      RETURNING project_id
+    `;
+
+    const queryParams = [project_name, organization_id, description, location, date];
+    const result = await db.query(query, queryParams);
+
+    if (result.rows.length === 0) {
+        throw new Error('Failed to create project');
+    }
+
+    return result.rows[0].project_id;
+};
+const updateProject = async (projectId, project_name, organization_id, description, location, date) => {
+    const query = `
+      UPDATE projects
+      SET project_name = $1, organization_id = $2, description = $3, location = $4, date = $5
+      WHERE project_id = $6
+      returning project_id;`
+    const queryParams = [ project_name, organization_id, description, location, date, projectId];
+    const result = await db.query(query, queryParams);
+
+    if (result.rows.length === 0) {
+        throw new Error('Failed to update project');
+    }   
+    return result.rows[0].project_id;
+};
+
+export {getAllProjects, getProjectsByOrganizationId, getProjectDetails, getUpcomingProjects, createProject, updateProject};

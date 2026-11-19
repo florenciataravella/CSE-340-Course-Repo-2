@@ -2,6 +2,7 @@ import { getAllOrganizations, getOrganizationDetails } from '../models/organizat
 import {getProjectsByOrganizationId} from '../models/projects.js';
 import {createOrganization} from '../models/organizations.js';
 import { body, validationResult } from 'express-validator';
+import { updateOrganization } from '../models/organizations.js';
 
 // Define validation and sanitization rules for organization form
 // Define validation rules for organization form
@@ -74,10 +75,20 @@ const processEditOrganizationForm = async (req, res) => {
     const description = req.body.description;
     const contactEmail = req.body.contactEmail; 
     const logoFilename = req.body.logo;
+    const results = validationResult(req);
+    
+    if (!results.isEmpty()) {
+    // Validation failed - loop through errors
+    results.array().forEach((error) => {
+        req.flash('error', error.msg);
+    });
 
+    // Redirect back to the edit organization form
+    return res.redirect('/edit-organization/' + req.params.id);
+    };
     await updateOrganization(organizationId, name, description, contactEmail, logoFilename);
     req.flash('success', 'Organization updated successfully!');
     res.redirect(`/organization/${organizationId}`);
-}
+};
 
 export { showOrganizationsPage, showOrganizationDetailsPage, showNewOrganizationForm, processNewOrganizationForm, organizationValidation, showEditOrganizationForm, processEditOrganizationForm };
