@@ -22,12 +22,14 @@
         </ul>
     </nav>
     <% const messages = flash(); %>
-    <% Object.keys(messages).forEach(type => { %>
-        <% if (messages[type].length > 0) { %>
-            
+    <% if (Object.keys(messages).some(type => messages[type].length > 0)) { %>
+        <section class="flash-messages" aria-label="Notifications" aria-live="polite">
+            <% Object.keys(messages).forEach(type => { %>
                 <% messages[type].forEach(msg => { %>
-                    <%= msg %>
+                    <div class="alert <%= type %>" role="<%= type === 'error' ? 'alert' : 'status' %>">
+                        <%= msg %>
+                    </div>
                 <% }); %>
-            
-        <% } %>
-    <% }); %>
+            <% }); %>
+        </section>
+    <% } %>

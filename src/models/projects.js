@@ -56,7 +56,7 @@ const getUpcomingProjects = async (number_of_projects) => {
         p.organization_id,
         p.description,
         p.location,
-        TO_CHAR(p.date, 'MM/DD/YYYY') AS date,
+        TO_CHAR(p.date, 'YYYY-MM-DD') AS date,
         o.name 
     FROM public.projects p
     JOIN public.organization o
