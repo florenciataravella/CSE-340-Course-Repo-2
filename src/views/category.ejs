@@ -9,6 +9,9 @@
         <li><a href="/project/<%= project.project_id %>"><strong><%= project.project_name %></strong></a></li>
     <% }); %>
 </ul>
-<div class="detail-actions"><a class="action-link" href="/edit-category/<%= categoryDetails.category_id %>">Edit Category</a></div>
+<% if (user && user.role_name === 'admin') { %>
+<div class="detail-actions"><a class="action-link" href="/edit-category/<%= categoryDetails.category_id %>">Edit Category</a>
+</div>
+<% } %>; 
 </main>
 <%- include ('partials/footer.ejs') %>

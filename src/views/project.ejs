@@ -10,10 +10,12 @@
             <li><a href="/category/<%= category.category_id %>"><%= category.category_name %></a></li>
         <% }); %>
     </ul>
+    <% if (user && user.role_name === 'admin') { %>
     <div class="detail-actions">
         <a class="action-link" href="/edit-project/<%= projectDetails.project_id %>">Edit Project</a>
         <a class="action-link secondary" href="/assign-categories/<%= projectDetails.project_id %>">Edit Categories</a>
     </div>
+    <% } %>;
 </main>
  <%- include ('partials/footer.ejs') %>
 

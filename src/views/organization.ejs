@@ -2,9 +2,11 @@
     <main>
         <h1><%= title %></h1>
         <h2><%= organizationDetails.name %></h2>
+        
         <img src="/images/<%= organizationDetails.logo_filename %>" alt="<%= organizationDetails.name %> logo">
-        <div class="detail-actions"><a class="action-link" href="/edit-organization/<%= organizationDetails.organization_id %>">Edit Organization</a></div>
-        <p><%= organizationDetails.description %></p>
+        <div class="detail-actions">
+            <p><%= organizationDetails.description %></p>
+        </div>
         <h3> Service Projects:</h3>
         <ul>
             <% projects.forEach(project => { %>
@@ -12,5 +14,9 @@
                 </li>
             <% }); %>
         </ul>
+            
+        <% if(user && user.role_name==='admin'){ %>
+         <p>  <a class="action-link" href="/edit-organization/<%= organizationDetails.organization_id %>">Edit Organization</a> </p> 
+            <% } %>
     </main>
     <%- include('partials/footer') %>
